@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     width: '100%',
     zIndex: theme.zIndex.drawer,
-    backgroundColor: 'transparent',
+    //backgroundColor: 'transparent',
   },
   appbar: {
     display: 'flex',

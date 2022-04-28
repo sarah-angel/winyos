@@ -14,25 +14,14 @@ export default function Something(props) {
 
   return (
     <div className={classes.root} id='section4'>
-      <div className={classes.container}>
-        <img src={image} className={classes.image} />
-          
+      <div className={classes.container}>          
         <div className={classes.content}>
           <Typography className={classes.title} >
-            Customer Service
+            Fast/Affordable Delivery?
           </Typography>
           <Typography className={classes.info} >
             We take great pride in knowing our products and the service we provide affect the care of our veterans, active duty military personnel and their families. Our specialized team is here for you.             We take great pride in knowing our products and the service we provide affect the care of our veterans, active duty military personnel and their families. Our specialized team is here for you.
           </Typography>
-
-          <div style={{display: 'flex'}}>
-            <Button variant='contained' className={classes.btn}
-              endIcon={<ArrowRightAltIcon />}
-              size='large'
-            >
-              Contact Us
-            </Button>
-          </div>
         </div>
     
       </div>
@@ -47,7 +36,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: lightenDarkenColor(theme.palette.primary.main, 100),
+    backgroundColor: 'lightgrey',
+    //backgroundColor: lightenDarkenColor(theme.palette.primary.main, 100),
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
@@ -60,9 +50,9 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
   },
   container: {
-    width: '90%',
+    width: '70%',
     display: 'flex',
-    maxWidth: 1800,
+    maxWidth: 1600,
   },
   image: {
     maxWidth: '50%'
@@ -74,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   title : {
-    textAlign: 'left', 
+    textAlign: 'center', 
     color: theme.palette.text.primary,
     fontSize: '2rem',
     fontWeight: 'bold',  
@@ -87,7 +77,7 @@ const useStyles = makeStyles(theme => ({
     borderBottomWidth: 3,
   },
   info: {
-    textAlign: 'left',
+    textAlign: 'center',
     fontSize: '1.2rem',
   },
   btn: {

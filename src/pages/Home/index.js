@@ -11,6 +11,8 @@ import { Link as Scroll } from 'react-scroll'
 import Intro from './components/Intro'
 import Section from './components/Section'
 import Something from './components/Something'
+import Something2 from './components/Something2'
+import Something3 from './components/Something3'
 import Partners from './components/Partners'
 
 import img1 from '../../assets/images/1.jpg'
@@ -51,6 +53,8 @@ export default function Home(props) {
       <Intro />
       <Section />
       <Something />
+      <Something2 />
+      <Something3 />
       <Partners />
     </div>
   )

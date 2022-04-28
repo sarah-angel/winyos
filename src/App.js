@@ -2,12 +2,12 @@ import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/s
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
   Toolbar, 
-  CssBaseline
+  CssBaseline,
 } from '@mui/material'
 
-import Header from './pages/components/Navbar'
+import Header from './pages/components/Navbar/index'
 import Footer from './pages/components/Footer'
-import Home from './pages/Home'
+import Home from './pages/Home/index'
 
 function App() {
   const lightTheme = createTheme({
@@ -25,8 +25,7 @@ function App() {
       },
       background: {
         paper: '#f5f5f5',
-        //default: "#d3d3d3",
-        default: '#fdffff',
+        default: '#fff7e6',
       },
     },
     typography: {
@@ -38,7 +37,7 @@ function App() {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <CssBaseline />
         <div className="App">
           <Header />

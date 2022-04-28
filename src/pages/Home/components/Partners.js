@@ -1,11 +1,14 @@
 import React from 'react'
 import {
   Divider,
+  IconButton,
 } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const partners = [
   {
@@ -30,6 +33,19 @@ const partners = [
   },
 ]
 
+function xBackArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, color: "red" }}
+      onClick={onClick}
+    >
+      <ChevronLeftIcon />
+    </div>
+  );
+}
+
 export default function Partners(props) {
   const classes = useStyles()
 
@@ -42,6 +58,8 @@ export default function Partners(props) {
     autoplay: true,
     // centerMode: true,
     initialSlide: 0,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -51,7 +69,7 @@ export default function Partners(props) {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 720,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -59,7 +77,7 @@ export default function Partners(props) {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 560,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -91,17 +109,56 @@ export default function Partners(props) {
   )
 }
 
+const PrevArrow = (props) => {
+  const classes = useStyles()
+
+  const { style, onClick } = props;
+  return (
+    <IconButton
+      className={classes.prevArrow}
+      style={style}
+      onClick={onClick}
+    >
+      <ChevronLeftIcon />
+    </IconButton>
+  );
+}
+
+const NextArrow = (props) => {
+  const classes = useStyles()
+
+  const { style, onClick } = props;
+  return (
+    <IconButton
+      className={classes.nextArrow}
+      style={style}
+      onClick={onClick}
+    >
+      <ChevronRightIcon />
+    </IconButton>
+  );
+}
+
 const useStyles = makeStyles(theme => ({
   root: {
-    minHeight: '80vh',
+    //minHeight: '80vh',
     display: 'flex',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    //marginTop: 20,
+    paddingTop: 50,
+    paddingBottom: 50,
+    [theme.breakpoints.up('md')]: {
+      paddingTop: 80,
+    },
+    maxWidth: 2000,
+    margin: 'auto',
   },
   container: {
-    width: '70%',
+    width: '80%',
+    [theme.breakpoints.down('sm')]: {
+      width: '70%',
+    },
   },
   title : {
     textAlign: 'center', 
@@ -126,5 +183,35 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     padding: 10,
     objectFit: 'contain',
-  }
+  },
+  prevArrow: {
+    position: 'absolute',
+    top: '50%',
+    display: 'block',
+    padding: 5,
+    '-webkit-transform': 'translate(0, -50%)',
+    '-ms-transform': 'translate(0, -50%)',
+    transform: 'translate(0, -50%)',
+    cursor: 'pointer',
+    color: theme.palette.primary.main,
+    border: 'none',
+    outline: 'none',
+    background: 'transparent',
+    left: -40,
+  },
+  nextArrow: {
+    position: 'absolute',
+    top: '50%',
+    display: 'block',
+    padding: 5,
+    '-webkit-transform': 'translate(0, -50%)',
+    '-ms-transform': 'translate(0, -50%)',
+    transform: 'translate(0, -50%)',
+    cursor: 'pointer',
+    color: theme.palette.primary.main,
+    border: 'none',
+    outline: 'none',
+    background: 'transparent',
+    right: -40,
+  },
 }))

@@ -31,11 +31,18 @@ export default function Intro(props) {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    minHeight: '100vh',
+    //minHeight: '100vh',
     display: 'flex',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 50,
+    paddingBottom: 50,
+    [theme.breakpoints.up('md')]: {
+      paddingTop: 80,
+    },
+    maxWidth: 2000,
+    margin: 'auto',
   },
   container: {
     width: '70%',
