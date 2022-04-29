@@ -5,9 +5,11 @@ import {
   CssBaseline,
 } from '@mui/material'
 
-import Header from './pages/components/Navbar/index'
+import Header from './pages/components/Navbar'
 import Footer from './pages/components/Footer'
-import Home from './pages/Home/index'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import Product from './pages/Product'
 
 function App() {
   const lightTheme = createTheme({
@@ -46,6 +48,8 @@ function App() {
           
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route exact path='/products' element={<Products />} />
+            <Route exact path='/products/:product' element={<Product />} />
           </Routes>
 
           <Footer />
